@@ -1,9 +1,11 @@
+import React from "react";
+import { auth } from "./firebase/firebase.utils.js";
+import { Switch, Route } from "react-router-dom";
+
 import HomePage from "./pages/homepage/homepage.component.jsx";
 import ShopPage from "./pages/shop/shop.component.jsx";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx";
 import Header from "./components/header/header.component.jsx";
-
-import { Switch, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -13,22 +15,42 @@ import "./App.css";
 //   </div>
 // );
 
-function App() {
-  return (
-    <div>
-      <Header/>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage}/>
-        <Route path="/sign" component={SignInAndSignUpPage}/>
-        {/* <Route path="/hats" component={HatsPage} />
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      currentUser: null,
+    };
+  }
+
+  unSubscribeFromAuth=null;
+
+  componentDidMount() {
+    auth.onAuthStateChanged((user) => {
+      this.setState({ currentUser: user });
+      console.log(user);
+    });
+  }
+  componentWillUnmount(){
+    this.unSubscribeFromAuth();
+  }
+  render() {
+    return (
+      <div>
+        <Header currentUser={this.state.currentUser} />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/sign" component={SignInAndSignUpPage} />
+          {/* <Route path="/hats" component={HatsPage} />
         <Route path="/jackets" component={JacketsPage} />
         <Route path="/sneakers" component={SneakersPage} />
         <Route path="/women" component={WomenPage} />
         <Route path="/mens" component={MensPage} /> */}
-      </Switch>
-    </div>
-  );
+        </Switch>
+      </div>
+    );
+  }
 }
 
 export default App;

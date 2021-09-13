@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "firebase": "^9.0.2",
     "global": "^4.4.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
@@ -15,8 +16,8 @@
     "sass": "^1.39.2",
     "web-vitals": "^1.0.1"
   },
-  "resolution":{
-    "babel-jest":"24.7.1"
+  "resolution": {
+    "babel-jest": "24.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
