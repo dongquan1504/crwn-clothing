@@ -28,7 +28,7 @@ class SignIn extends React.Component {
     const { email, password } = this.state;
     return (
       <div className="sign-in">
-        <h2>I already have a account</h2>
+        <h2 className='title'>I already have a account</h2>
         <span>Sign in with your email and password</span>
         <form onSubmit={this.handleSubmit}>
           <FormInput
@@ -47,12 +47,13 @@ class SignIn extends React.Component {
             handleChange={this.handleChange}
             required
           />
-
+          <div className='buttons'>
           <CustomButton type="submit"> Sign In</CustomButton>
-          <CustomButton onClick={signInWithGoogle}>
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
             {" "}
             Sign In With Google{" "}
           </CustomButton>
+          </div>
         </form>
       </div>
     );
