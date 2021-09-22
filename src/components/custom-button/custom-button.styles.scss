@@ -37,8 +37,8 @@
     border: 1px solid black;
     &:hover {
       background-color: black;
+      border: 2px groove #357ae8;
       color: white;
-      border: none;
     }
   }
 }
