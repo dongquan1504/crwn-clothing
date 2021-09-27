@@ -10,7 +10,6 @@ import CartDropDown from "../cart-dropdown/cart-dropdown.component";
 import CartIcon from "../cart-icon/cart-icon.component";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-
 import "./header.styles.scss";
 
 const Header = ({ currentUser, hidden }) => (
@@ -27,8 +26,11 @@ const Header = ({ currentUser, hidden }) => (
         CONTACT
       </Link>
       {currentUser ? (
-        <div className="option" onClick={() => auth.signOut()}>
+        <div className="option">
           {currentUser.displayName}
+          <span className="sign-out-hover" onClick={() => auth.signOut()}>
+            sign out
+          </span>
         </div>
       ) : (
         <Link className="option" to="/sign">
