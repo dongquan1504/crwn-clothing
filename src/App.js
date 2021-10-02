@@ -14,11 +14,6 @@ import Header from "./components/header/header.component.jsx";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUsers } from "./redux/user/user.selectors.js";
 
-// const HatsPage = props => (
-//   <div>
-//     <h1>HATs PAGE</h1>
-//   </div>
-// );
 class App extends React.Component {
   unSubscribeFromAuth = null;
   componentDidMount() {
@@ -62,11 +57,6 @@ class App extends React.Component {
               )
             }
           />
-          {/* <Route path="/hats" component={HatsPage} />
-        <Route path="/jackets" component={JacketsPage} />
-        <Route path="/sneakers" component={SneakersPage} />
-        <Route path="/women" component={WomenPage} />
-        <Route path="/mens" component={MensPage} /> */}
         </Switch>
       </div>
     );
