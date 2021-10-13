@@ -27,7 +27,7 @@ const INTIAL_STATE = {
       title: "WOMENs",
       imageUrl: women,
       size: "large",
-      linkUrl: "shop/women",
+      linkUrl: "shop/womens",
       id: 4,
     },
     {

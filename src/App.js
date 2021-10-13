@@ -15,9 +15,12 @@ import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUsers } from "./redux/user/user.selectors.js";
 
 class App extends React.Component {
-  unSubscribeFromAuth = null;
+  unsubscribeFromAuth = null;
+
+  //insert firebase
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    const { setCurrentUser, /*collectionsArray*/ } = this.props;
+
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
@@ -27,11 +30,13 @@ class App extends React.Component {
             email: snapShot.email,
             ...snapShot.data(),
           });
-          if (this.props.currentUser.email==='dinhlynh08@gmail.com')
+          if (this.props.currentUser.email === 'dinhlynh08@gmail.com')
             alert('happy birthday my sweetie');
         });
       }
       setCurrentUser(userAuth);
+      // addCollectionAndDocuments('collections',
+      // collectionsArray.map(({ title, items }) => ({ title, items })));
     });
   }
 
