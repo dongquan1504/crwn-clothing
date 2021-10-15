@@ -27,17 +27,14 @@ class App extends React.Component {
         userRef.onSnapshot((snapShot) => {
           setCurrentUser({
             id: snapShot.id,
-            email: snapShot.email,
             ...snapShot.data(),
           });
-          if (this.props.currentUser.email === 'dinhlynh08@gmail.com')
-            alert('happy birthday my sweetie');
         });
       }
       setCurrentUser(userAuth);
       // addCollectionAndDocuments('collections',
       // collectionsArray.map(({ title, items }) => ({ title, items })));
-    });
+    }, err=>console.log(err));
   }
 
   componentWillUnmount() {
